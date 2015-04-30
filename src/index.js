@@ -1,3 +1,6 @@
+var isNullOrUndefined = require("is_null_or_undefined");
+
+
 var supportedInputTypes = {
     color: true,
     date: true,
@@ -16,9 +19,12 @@ var supportedInputTypes = {
     week: true
 };
 
-module.exports = function isTextInputElement(obj) {
-    return obj != null && (
+module.exports = isTextInputElement;
+
+
+function isTextInputElement(obj) {
+    return !isNullOrUndefined(obj) && (
         (obj.nodeName === "INPUT" && supportedInputTypes[obj.type]) ||
         obj.nodeName === "TEXTAREA"
     );
-};
+}

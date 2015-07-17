@@ -1,30 +1,19 @@
-var isNullOrUndefined = require("is_null_or_undefined");
+var indexOf = require("index_of"),
+    isNullOrUndefined = require("is_null_or_undefined");
 
 
-var supportedInputTypes = {
-    color: true,
-    date: true,
-    datetime: true,
-    "datetime-local": true,
-    email: true,
-    month: true,
-    number: true,
-    password: true,
-    range: true,
-    search: true,
-    tel: true,
-    text: true,
-    time: true,
-    url: true,
-    week: true
-};
+var supportedInputTypes = [
+    "color", "date", "datetime", "datetime-local", "email", "month", "number",
+    "password", "range", "search", "tel", "text", "time", "url", "week"
+];
+
 
 module.exports = isTextInputElement;
 
 
-function isTextInputElement(obj) {
-    return !isNullOrUndefined(obj) && (
-        (obj.nodeName === "INPUT" && supportedInputTypes[obj.type]) ||
-        obj.nodeName === "TEXTAREA"
+function isTextInputElement(value) {
+    return !isNullOrUndefined(value) && (
+        (value.nodeName === "INPUT" && indexOf(supportedInputTypes, value.type) !== -1) ||
+        value.nodeName === "TEXTAREA"
     );
 }

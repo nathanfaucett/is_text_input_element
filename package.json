@@ -7,6 +7,9 @@
     "url": "https://github.com/nathanfaucett/is_text_input_element.git"
   },
   "main": "src/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "keywords": [
     "is_text_input_element",
     "is_text_input_element.js"
@@ -21,6 +24,7 @@
     "mocha": "^2.1.0"
   },
   "dependencies": {
-    "is_null_or_undefined": "git://github.com/nathanfaucett/is_null_or_undefined"
+    "is_null_or_undefined": "git://github.com/nathanfaucett/is_null_or_undefined",
+    "index_of": "git://github.com/nathanfaucett/index_of"
   }
 }
